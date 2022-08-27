@@ -1,0 +1,421 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  creationTimestamp: "2021-05-03T18:33:54Z"
+  generation: 92
+  name: mobile
+  namespace: alto
+  resourceVersion: "833850904"
+  uid: 95e90b40-7bc9-45a1-9316-1b135b62a0e8
+spec:
+  hosts:
+  - mobile
+  http:
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master
+    route:
+    - destination:
+        host: mobile
+        subset: master
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-3778
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-3778
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5309
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5309
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5621
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5621
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5991
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5991
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5278
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5278
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-6058
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-6058
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5466
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5466
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-6072
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-6072
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5629
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5629
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5524
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5524
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5791
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5791
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5089
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5089
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5493
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5493
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5870
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5870
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5625
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5625
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5302
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5302
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-6005
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-6005
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5523
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5523
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5775
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5775
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5666
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5666
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5747
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5747
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-6006
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-6006
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-6100
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-6100
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5656
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5656
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5765
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5765
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--MOBILE-5966
+    route:
+    - destination:
+        host: mobile
+        subset: master--MOBILE-5966
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^master--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-210412
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210412
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-210911
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210911
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-211111
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-211111
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-211211
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-211211
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-210811
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210811
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-220111
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-220111
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-211011
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-211011
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-210460
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210412
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-210601
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210412
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: master--1-229911
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-220111
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^master--1-\d{6}$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-220111
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-210412--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210412
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-210460--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210412
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-210601--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210412
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-210811--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210811
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-210911--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-210911
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-211011--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-211011
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-211111--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-211111
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-211211--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-211211
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-220111--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-220111
+  - match:
+    - headers:
+        x-rks-pver:
+          regex: ^1-229911--[A-Z]+-[0-9]+[\w-]*$
+    route:
+    - destination:
+        host: mobile
+        subset: master--1-220111
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: acx-hybrid
+    route:
+    - destination:
+        host: mobile
+        subset: master
+  - match:
+    - headers:
+        x-rks-pver:
+          exact: acx
+    route:
+    - destination:
+        host: mobile
+        subset: master
