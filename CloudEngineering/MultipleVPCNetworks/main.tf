@@ -14,7 +14,7 @@ terraform {
 
 provider "google" {
   # Configuration options
-  project     = "kumo-cicd"
+  project     = "qwiklabs-gcp-00-d3d2b8f03935"
   region      = "us-central1"
 }
 
@@ -53,11 +53,10 @@ resource "google_compute_subnetwork" "privatesubnet-eu" {
   network       = google_compute_network.vpc_privatenet.id
 }
 
-
 # fw for managementnet
 resource "google_compute_firewall" "managementnet-allow-icmp-ssh-rdp" {
   name       = "managementnet-allow-icmp-ssh-rdp"
-  network    = google_compute_network.vpc_privatenet.id
+  network    = google_compute_network.vpc_managementnet.id
 
   allow {
     protocol = "icmp"
@@ -70,7 +69,6 @@ resource "google_compute_firewall" "managementnet-allow-icmp-ssh-rdp" {
 
   source_ranges = ["0.0.0.0/0"]
 }
-
 
 # fw for privatenet
 resource "google_compute_firewall" "privatenet-allow-icmp-ssh-rdp" {
@@ -91,7 +89,6 @@ resource "google_compute_firewall" "privatenet-allow-icmp-ssh-rdp" {
   source_ranges = ["0.0.0.0/0"]
 }
 
-
 resource "google_compute_instance" "managementnet-us-vm" {
   name         = "managementnet-us-vm"
   boot_disk {
@@ -99,7 +96,7 @@ resource "google_compute_instance" "managementnet-us-vm" {
       image = "debian-cloud/debian-11"
     }
   }
-  zone         = "us-east1-a"
+  zone         = "us-east1-c"
   machine_type = "e2-micro"
 
   network_interface {
@@ -109,7 +106,7 @@ resource "google_compute_instance" "managementnet-us-vm" {
 }
 resource "google_compute_instance" "privatenet-us-vm" {
   name         = "privatenet-us-vm"
-  zone         = "us-east1-a"
+  zone         = "us-east1-c"
   machine_type = "e2-micro"
 
   boot_disk {
@@ -125,7 +122,7 @@ resource "google_compute_instance" "privatenet-us-vm" {
 
 resource "google_compute_instance" "vm_appliance" {
   name         = "vm-appliance"
-  zone         = "us-east1-a"
+  zone         = "us-east1-c"
   machine_type = "e2-standard-4"
 
   boot_disk {
