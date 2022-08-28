@@ -36,5 +36,10 @@ resource "google_storage_bucket" "static-site" {
 resource "google_storage_bucket_object" "sample_txt" {
   name          = "sample.txt"
   source        = "./sample.txt"
-  bucket        = random_string.random_bucket_name.result
+  bucket        = google_storage_bucket.static-site.name
 }
+
+#resource "google_project_iam_policy" "project" {
+#  project     = "kumo-cicd"
+#  policy_data = data.google_iam_policy.admin.policy_data
+#}
