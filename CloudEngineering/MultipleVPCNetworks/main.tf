@@ -53,6 +53,25 @@ resource "google_compute_subnetwork" "privatesubnet-eu" {
   network       = google_compute_network.vpc_privatenet.id
 }
 
+
+# fw for managementnet
+resource "google_compute_firewall" "managementnet-allow-icmp-ssh-rdp" {
+  name       = "managementnet-allow-icmp-ssh-rdp"
+  network    = google_compute_network.vpc_privatenet.id
+
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22", "3389"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
+
+
 # fw for privatenet
 resource "google_compute_firewall" "privatenet-allow-icmp-ssh-rdp" {
   name       = "privatenet-allow-icmp-ssh-rdp"
@@ -85,7 +104,7 @@ resource "google_compute_instance" "managementnet-us-vm" {
 
   network_interface {
     network = "managementnet"
-    subnetwork = "managementnet-us"
+    subnetwork = "managementsubnet-us"
   }
 }
 resource "google_compute_instance" "privatenet-us-vm" {
@@ -99,7 +118,7 @@ resource "google_compute_instance" "privatenet-us-vm" {
     }
   }
   network_interface {
-    network = "privatesubnet"
+    network = "privatenet"
     subnetwork = "privatesubnet-us"
   }
 }
@@ -120,7 +139,7 @@ resource "google_compute_instance" "vm_appliance" {
   }
   network_interface {
     network = "managementnet"
-    subnetwork = "managementnet-us"
+    subnetwork = "managementsubnet-us"
   }
   network_interface {
     network = "mynetwork"
