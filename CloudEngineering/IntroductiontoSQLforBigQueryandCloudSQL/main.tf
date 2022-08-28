@@ -31,6 +31,11 @@ resource "google_sql_database_instance" "main" {
   }
 }
 
+resource "google_sql_database" "database" {
+  name     = "bike"
+  instance = google_sql_database_instance.main.name
+}
+
 resource "random_string" "random_bucket_name" {
   length           = 12
   upper            = false
