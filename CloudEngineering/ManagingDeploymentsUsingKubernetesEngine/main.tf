@@ -14,7 +14,7 @@ terraform {
 
 provider "google" {
   # Configuration options
-  project     = "kumo-cicd"
+  #  project     = "kumo-cicd"
   region      = "us-central1"
 }
 
@@ -37,8 +37,8 @@ resource "google_container_cluster" "bootcamp" {
   initial_node_count       = 3
 }
 
-resource "google_container_node_pool" "bootcamp_np" {
-  name       = "bootcamp_np"
+resource "google_container_node_pool" "bootcampnp" {
+  name       = "bootcampnp"
   location   = "${var.zone}"
   cluster    = google_container_cluster.bootcamp.name
   node_count = 3
