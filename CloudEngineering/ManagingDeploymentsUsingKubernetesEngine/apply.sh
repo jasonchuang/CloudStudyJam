@@ -1,7 +1,12 @@
 #!/bin/bash
 
-
 pushd orchestrate-with-kubernetes/kubernetes/
+    gcloud config set compute/zone us-east1-d
+
+    gcloud container clusters create bootcamp \
+      --machine-type e2-small \
+      --num-nodes 3 \
+      --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw"
     kubectl create -f deployments/auth.yaml
     kubectl create -f services/auth.yaml
     kubectl create -f deployments/hello.yaml
