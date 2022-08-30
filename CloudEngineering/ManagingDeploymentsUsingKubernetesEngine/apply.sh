@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pushd orchestrate-with-kubernetes/kubernetes/
+    gcloud config set project qwiklabs-gcp-00-897ee0b3187a
     gcloud config set compute/zone us-east1-d
 
     gcloud container clusters create bootcamp \
