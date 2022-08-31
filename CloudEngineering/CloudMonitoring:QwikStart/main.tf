@@ -39,7 +39,7 @@ resource "google_compute_instance" "lamp-1-vm" {
     network = "default"
   }
 
-  tags = ["http"]
+  tags = ["http", "http-server"]
   #  metadata_startup_script = "echo hi > /test.txt"
   metadata_startup_script = <<SCRIPT
     sudo service apache2 restart
