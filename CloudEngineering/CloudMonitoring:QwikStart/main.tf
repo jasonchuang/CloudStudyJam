@@ -46,6 +46,10 @@ resource "google_compute_instance" "lamp-1-vm" {
 
   network_interface {
     network = "default"
+
+    access_config {
+      // Ephemeral public IP
+    }
   }
 
   tags = ["http", "http-server"]
