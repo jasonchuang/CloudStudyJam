@@ -28,6 +28,12 @@ variable "gcp_region" {
   description = "GCP Region."
 }
 
+provider "google" {
+  # Configuration options
+  project     = "${var.gcp_project}"
+  region      = "${var.gcp_region}"
+}
+
 resource "google_sql_database_instance" "main" {
   project      = "${var.gcp_project}"
   region         = "${var.gcp_region}"
