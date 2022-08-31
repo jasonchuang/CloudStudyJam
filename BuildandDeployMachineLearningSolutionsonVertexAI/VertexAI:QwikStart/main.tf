@@ -12,6 +12,14 @@ terraform {
   }
 }
 
+variable "gcp_project" {
+  type        = string
+  description = "GCP Project."
+}
+variable "gcp_region" {
+  type        = string
+  description = "GCP Region."
+}
 provider "google" {
   project     = "${var.gcp_project}"
   region      = "${var.gcp_region}"
