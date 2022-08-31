@@ -23,13 +23,18 @@ variable "gcp_zone" {
   description = "GCP Zone."
 }
 
+variable "gcp_region" {
+  type        = string
+  description = "GCP Region."
+}
+
 resource "google_sql_database_instance" "main" {
   project      = "${var.gcp_project}"
-  zone         = "${var.gcp_zone}"
+  region         = "${var.gcp_region}"
   name             = "myinstance"
   database_version = "MYSQL_5_7"
   region           = "us-central1"
-  password         = "mypassword"
+  root_password         = "mypassword"
 
   settings {
     # Second-generation instance tiers are based on the machine
