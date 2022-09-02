@@ -8,7 +8,7 @@ gcloud container clusters create awwvision \
 gcloud container clusters get-credentials awwvision
 
 
-apt-get install -y virtualenv
+sudo apt-get install -y virtualenv
 python3 -m venv venv
 source venv/bin/activate
 
