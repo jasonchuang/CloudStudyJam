@@ -69,3 +69,19 @@ resource "google_storage_bucket_object" "city" {
   source        = "./city.png"
   bucket        = google_storage_bucket.static-site.name
 }
+
+
+resource "google_storage_bucket_object" "city2" {
+  name          = "city2.png"
+  source        = "./city2.png"
+  bucket        = google_storage_bucket.static-site.name
+}
+
+resource "google_storage_object_access_control" "city2_public_rule" {
+  object = google_storage_bucket_object.city2.output_name
+  bucket = google_storage_bucket.static-site.name
+  role   = "READER"
+  entity = "allUsers"
+}
+
+
