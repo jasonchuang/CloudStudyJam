@@ -57,3 +57,12 @@ resource "google_storage_bucket_object" "sample_txt" {
   bucket        = google_storage_bucket.static-site.name
 }
 
+
+resource "google_storage_bucket_object" "selfie" {
+  name          = "selfie.png "
+  source        = "./selfie.png "
+  bucket        = google_storage_bucket.static-site.name
+}
+
+
+
