@@ -53,10 +53,13 @@ for file in files:
 
         # TBD: Create a Vision API image object called image_object
         # Ref: https://googleapis.dev/python/vision/latest/gapic/v1/types.html#google.cloud.vision_v1.types.Image
+        image_object = vision.types.Image()
+        image_object.content = file_content
 
 
         # TBD: Detect text in the image and save the response data into an object called response
         # Ref: https://googleapis.dev/python/vision/latest/gapic/v1/api.html#google.cloud.vision_v1.ImageAnnotatorClient.document_text_detection
+        response = vision_client.document_text_detection(image=image_object)
 
 
         # Save the text content found by the vision API into a variable called text_data
@@ -82,6 +85,7 @@ for file in files:
             # ref: https://googleapis.dev/python/translation/latest/client.html#google.cloud.translate_v2.client.Client.translate
             # Set the target_language locale to according to the lab activity)
 
+            translation = translate_client.translate(desc, target_language='en')
             translated_text = translation['translatedText']
         print(translated_text)
 
