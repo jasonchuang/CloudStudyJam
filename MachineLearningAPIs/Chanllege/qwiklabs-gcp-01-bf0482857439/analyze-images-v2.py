@@ -77,14 +77,14 @@ for file in files:
         locale = response.text_annotations[0].locale
 
         # TBD: Save the description as the translated text into target_language eg. 'en', 'fe', and 'ja' according to the lab manual .
-        if locale == '':
+        if locale == 'ja':
             translated_text = desc
         else:
             # TBD: According to the target language pass the description data to the translation API
             # ref: https://googleapis.dev/python/translation/latest/client.html#google.cloud.translate_v2.client.Client.translate
             # Set the target_language locale to according to the lab activity)
 
-            translation = translate_client.translate(desc, target_language='en')
+            translation = translate_client.translate(desc, target_language='ja')
             translated_text = translation['translatedText']
         print(translated_text)
 
@@ -96,5 +96,5 @@ for file in files:
 print('Writing Vision API image data to BigQuery...')
 # Write original text, locale and translated text to BQ
 # TBD: When the script is working uncomment the next line to upload results to BigQuery
-# errors = bq_client.insert_rows(table, rows_for_bq)
+errors = bq_client.insert_rows(table, rows_for_bq)
 assert errors == []

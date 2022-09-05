@@ -15,4 +15,4 @@ export GOOGLE_APPLICATION_CREDENTIALS=key.json
 
 # 3
 export BUCKET=$PROJECT
-python analyze-images.py $PROJECT $BUCKET
+python analyze-images-v2.py $PROJECT $BUCKET
