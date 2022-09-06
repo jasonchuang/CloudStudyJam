@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DOCKER_TAG=gcr.io/ql-shared-resources-test/resistance_solution@sha256:d9095cbd6f7ca69b1a30c58c4272b68062d2004ed259ff0dcb9af0ceb92b393b
+export DOCKER_TAG=gcr.io/ql-shared-resources-test/defect_solution@sha256:776fd8c65304ac017f5b9a986a1b8189695b7abbff6aa0e4ef693c46c7122f4c
 
 
 export VISERVING_CPU_DOCKER_WITH_MODEL=${DOCKER_TAG}
